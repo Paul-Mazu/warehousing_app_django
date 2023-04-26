@@ -11,6 +11,7 @@
 <body>
     <a href="{% url 'index-page' %}" class="back-button">Go back</a>
     <a href="{% url 'list-items' %}" class="back-button">Show all</a>
+    <a href="{% url 'cart' %}" class="back-button">Go to cart</a>
     
     <form action="{% url 'list-items' %}" method="GET">
         {% csrf_token %}

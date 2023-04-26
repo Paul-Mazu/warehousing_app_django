@@ -10,7 +10,7 @@
 </head>
 <body>
     <a href="{% url 'list-items' %}" class="back-button">Go back</a>
-    <a href="{% url 'cart' %}" class="back-button">Go to cart</a>
+    <a href="{% url 'cart' %}" class="back-button">Place the order</a>
 
     <table>
         <thead>
@@ -19,7 +19,7 @@
                 <th>Category</th>
                 <th>Date of stock</th>
                 <th>Warehouse</th>
-                <th>Order</th>
+                <th>Remove from the order</th>
             </tr>
         </thead>
         <tbody>
@@ -29,17 +29,10 @@
                         <td>{{ item.category }}</td>
                         <td>{{ item.date_of_stock.date }}</td>
                         <td>Warehouse No: {{ item.warehouse.id }}</td>
-                        {% if item in cart %}
-                        <td><form action="{% url 'add-to-cart' item.id %}" method='POST'>
+                        <td><form action="{% url 'remove-from-cart' item.id %}" method='POST'>
                             {% csrf_token %}
-                            <button type="submit" disabled= "disabled">Add to order</button>
+                            <button type="submit">Remove from cart</button>
                         </form></td>
-                        {% else %}
-                        <td><form action="{% url 'add-to-cart' item.id %}" method='POST'>
-                            {% csrf_token %}
-                            <button type="submit">Add to order</button>
-                        </form></td>
-                        {% endif %}
                     </tr>
             {% endfor %}
         </tbody>

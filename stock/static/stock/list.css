@@ -84,5 +84,8 @@ form button[type="submit"]:hover {
   background-color: #0069d9;
 }
 
-  
-  
+form button[type="submit"]:disabled {
+  background-color: gray; /* change the background color */
+  color: white; /* change the text color */
+  cursor: not-allowed; /* change the cursor */
+}
