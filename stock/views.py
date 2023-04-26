@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from .models import Item, Warehouse, Employee
@@ -6,9 +6,6 @@ from django.db.models import Count, Min, Value
 from django.views import View
 from django.views.generic import ListView, DetailView
 from django.db.models.functions import Concat
-
-
-cart = []
 
 
 def index(request):
@@ -43,25 +40,36 @@ class ItemDetailView(View):
         item = Item.objects.get(pk=id)
         items = Item.objects.filter(
             state=item.state, category=item.category).order_by('date_of_stock')
+
+        if not request.session.get('cart'):
+            request.session['cart'] = []
+
         return render(request, "stock/item-detail.html", {
             "items": items,
-            "cart": cart
+            "cart": request.session['cart']
         })
-    
+
+
 def add_to_cart(request, id):
-    item = Item.objects.get(id = id)
-    cart.append(item)
+    cart = request.session['cart']
+    cart.append(id)
+    request.session['cart'] = cart
     return HttpResponseRedirect(reverse("items-detail", args=[id]))
 
 
 def remove_from_cart(request, id):
-    item = Item.objects.get(id = id)
-    cart.remove(item)
+    cart = request.session['cart']
+    cart.remove(id)
+    request.session['cart'] = cart
     return HttpResponseRedirect(reverse("cart"))
 
 
 def cart_view(request):
-    return render(request, "stock/cart.html", {"items": cart})
+    items = []
+    list_ids = request.session.get('cart')
+    if list_ids:
+        items = [Item.objects.get(id=id) for id in list_ids]
+    return render(request, "stock/cart.html", {"items": items})
 
 
 def place_order(request):

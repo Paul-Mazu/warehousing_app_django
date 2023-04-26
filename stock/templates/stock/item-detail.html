@@ -29,7 +29,7 @@
                         <td>{{ item.category }}</td>
                         <td>{{ item.date_of_stock.date }}</td>
                         <td>Warehouse No: {{ item.warehouse.id }}</td>
-                        {% if item in cart %}
+                        {% if item.id in cart %}
                         <td><form action="{% url 'add-to-cart' item.id %}" method='POST'>
                             {% csrf_token %}
                             <button type="submit" disabled= "disabled">Add to order</button>
