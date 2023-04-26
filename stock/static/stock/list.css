@@ -1,0 +1,88 @@
+/* Set font family and size */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Center the table and add margin */
+  table {
+    margin: 50px auto;
+    border-collapse: collapse;
+  }
+  
+  /* Style the table header */
+  thead {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  thead th {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Style the table rows */
+  tbody tr:nth-child(odd) {
+    background-color: #f5f5f5;
+  }
+  
+  tbody tr:hover {
+    background-color: #d8d8d8;
+    cursor: pointer;
+  }
+  
+  /* Style the table cells */
+  td {
+    padding: 10px;
+    border: 1px solid #d8d8d8;
+  }
+
+  .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .back-button:hover {
+    background-color: #555;
+  }
+
+  /* Style the form */
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Style the form label */
+form label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Style the form input */
+form input[type="text"] {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8;
+}
+
+/* Style the form button */
+form button[type="submit"] {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+  
+  

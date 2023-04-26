@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item name</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'stock/list.css' %}">
+</head>
+<body>
+    <a href="{% url 'list-items' %}" class="back-button">Go back</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>State</th>
+                <th>Category</th>
+                <th>Date of stock</th>
+                <th>Warehouse</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}                
+                    <tr onclick="window.location='{% url 'items-detail' item.id %}';">
+                        <td>{{ item.state }}</td>
+                        <td>{{ item.category }}</td>
+                        <td>{{ item.date_of_stock.date }}</td>
+                        <td>Warehouse No: {{ item.warehouse.id }}</td>
+                    </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
