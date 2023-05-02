@@ -1,11 +1,12 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from .models import Item, Warehouse, Employee
 from django.db.models import Count, Min, Value
 from django.views import View
 from django.views.generic import ListView, DetailView
 from django.db.models.functions import Concat
+from django.urls import resolve
 
 
 def index(request):
@@ -57,7 +58,7 @@ def add_to_cart(request, id):
 
 
 def remove_from_cart(request, id):
-    cart = request.session['cart']
+    cart = request.session.get("cart")
     cart.remove(id)
     request.session['cart'] = cart
     return HttpResponseRedirect(reverse("stock:cart"))
@@ -72,4 +73,21 @@ def cart_view(request):
 
 
 def place_order(request):
-    pass
+    cart = request.session.get("cart")
+    empty_cart = True
+
+    if cart:
+        empty_cart = False
+        Item.objects.filter(id__in=cart).delete()
+    
+    return render(request, "stock/order-placed.html", context= {
+            "empty_cart" : empty_cart
+        })
+   
+    
+
+def remove_order(request):
+    request.session["cart"] = []
+    next_url = request.GET.get('next')
+    return HttpResponseRedirect(next_url)
+    

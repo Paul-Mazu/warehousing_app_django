@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Thank you{% endblock title %}
+
+{% block content %}
+
+    {% if not empty_cart %}
+
+        <h1>your order was successfully placed, thank you!</h1>
+        <h2>You will be redirected to main page in <div id="countdown-timer">5</div></h2>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "{% url 'stock:index-page' %}";
+        }, 5000);
+
+        var countdown = 5;
+        var countdownTimer = setInterval(function() {
+          countdown--;
+          if (countdown < 0) {
+            clearInterval(countdownTimer);
+          } else {
+            document.getElementById('countdown-timer').innerHTML = countdown;
+          }
+        }, 1000); 
+      </script>
+
+      {% else %}
+
+      <h1>Your basket was empty, please add items to your basket</h1>
+      <h2>You will be redirected back in <div id="countdown-timer">5</div></h2>
+
+  <script>
+      setTimeout(function() {
+          window.location.href = "{% url 'stock:index-page' %}";
+      }, 5000);
+
+      var countdown = 5;
+      var countdownTimer = setInterval(function() {
+        countdown--;
+        if (countdown < 0) {
+          clearInterval(countdownTimer);
+        } else {
+          document.getElementById('countdown-timer').innerHTML = countdown;
+        }
+      }, 1000); 
+    </script>
+
+
+      {% endif %}
+
+{% endblock content %}

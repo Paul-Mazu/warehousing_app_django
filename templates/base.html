@@ -40,11 +40,11 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'stock:cart' %}">Go to basket</a></li>
-                            <li><a class="dropdown-item" href="#">Place the order</a></li>
+                            <li><a class="dropdown-item" href="{% url 'stock:place-order' %}">Place your order</a></li> 
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Remove your order</a></li>
+                            <li><a class="dropdown-item" href="{% url 'stock:remove-order' %}?next={{request.path}}">Remove your order</a></li>
                         </ul>
                     </li>
                 </ul>
