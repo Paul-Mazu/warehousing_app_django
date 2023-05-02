@@ -18,7 +18,6 @@ class AllItemsView(ListView):
     context_object_name = "items"
 
     def get_queryset(self):
-
         queryset = super().get_queryset()
         query = self.request.GET.get('query')
 
@@ -54,14 +53,14 @@ def add_to_cart(request, id):
     cart = request.session['cart']
     cart.append(id)
     request.session['cart'] = cart
-    return HttpResponseRedirect(reverse("items-detail", args=[id]))
+    return HttpResponseRedirect(reverse("stock:items-detail", args=[id]))
 
 
 def remove_from_cart(request, id):
     cart = request.session['cart']
     cart.remove(id)
     request.session['cart'] = cart
-    return HttpResponseRedirect(reverse("cart"))
+    return HttpResponseRedirect(reverse("stock:cart"))
 
 
 def cart_view(request):

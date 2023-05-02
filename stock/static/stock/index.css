@@ -1,14 +1,17 @@
 /* Set background color */
 body {
-    background-color: #f5f5f5;
-  }
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55) fixed;
+}
   
   /* Center text and add margin */
   h1 {
     text-align: center;
     margin-top: 50px;
     font-size: 3rem;
-    color: #333;
+    color: #fff;
   }
   
   /* Style the link */

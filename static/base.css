@@ -1,0 +1,31 @@
+body {
+    margin:0;
+    padding:0;
+    background-image: url(pictures/warehouse.jpg);
+  }
+
+.content_section {
+    min-height: 75vh;
+    color: white;
+}
+
+h1 {
+text-align: center;
+margin-top: 50px;
+font-size: 3rem;
+}
+
+h2 {
+    text-align: center;
+}
+
+h2 img {
+    height: 1em;
+    width: 1em;
+}
+
+footer {
+    color: white;
+    font-size: large;
+    font-weight: 600;
+}
