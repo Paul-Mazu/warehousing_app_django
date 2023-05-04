@@ -6,6 +6,19 @@
 {% block content %}    
 
 <h1>Welcome to warehouse 1.0</h1>
-<h2>You can see source code here: <a href="https://github.com/Paul-Mazu/warehousing_app_django"><img src="{% static 'logo/github.png' %}" alt="github logo"></h2></a> 
+<h2>You can see the source code here: <a href="https://github.com/Paul-Mazu/warehousing_app_django"><img src="{% static 'logo/github.png' %}" alt="github logo"></h2></a> 
+
+<ul class="list_indexpage">
+    <li>Warehouses ({{warehouses_count}}ea): </li>
+        <ul>
+            {% for warehouse in warehouses %}
+            <li>{{warehouse}}</li>
+            {% endfor %}
+        </ul>
+    <li>Product catagories: {{categories_count}}</li>
+    <li>All items: {{items_count}}</li>
+</ul>
+
+<img class="gif" src="{% static 'pictures/wh.gif' %}"> 
 
 {% endblock content %}

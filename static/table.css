@@ -1,9 +1,0 @@
-#example {
-    background-color: whitesmoke;
-    cursor: pointer;
-}
-
-#example tr:hover {
-    background-color: #0056b3;
-    cursor: pointer;
-}

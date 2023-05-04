@@ -32,7 +32,7 @@
 
   <script>
       setTimeout(function() {
-          window.location.href = "{% url 'stock:index-page' %}";
+          window.location.href = "{{old_path}}";  
       }, 5000);
 
       var countdown = 5;

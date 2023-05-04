@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "stock"
+    "stock",
 ]
 
 MIDDLEWARE = [
@@ -86,9 +87,9 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "warehouse",
         "USER": "paul",
-        "PASSWORD": os.getenv('DATABASE_PASSWORD'),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD"),
         "HOST": "localhost",
-        "PORT": "5432"
+        "PORT": "5432",
     }
 }
 
@@ -128,9 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-]
+STATICFILES_DIRS = [BASE_DIR / "static"]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
@@ -138,7 +137,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = 'stock:index-page'
-LOGOUT_REDIRECT_URL = 'stock:index-page'
+LOGIN_REDIRECT_URL = "stock:index-page"
+LOGOUT_REDIRECT_URL = "stock:index-page"
 
 # SESSION_COOKIE_AGE = 30
