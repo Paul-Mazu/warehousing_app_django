@@ -64,6 +64,7 @@
                     <a class="btn btn-outline-light ms-2" href="{% url 'account:logout' %}">Logout</a>
                 {% else %}
                     <a class="btn btn-outline-light ms-2" href="{% url 'account:login' %}?next={{request.path}}">Login</a>
+                    <a class="btn btn-outline-light ms-2" href="{% url 'account:signup' %}">SignUp</a>
                 {% endif %}
 
             </div>
