@@ -1,43 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-
-<script defer src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script defer src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<script defer src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-<script defer src="{% static 'stock/script.js' %}"></script> 
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <script defer src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script defer
+            src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script defer
+            src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script defer src="{% static 'stock/script.js' %}"></script>
 {% endblock style %}
-
-{% block titlew %}List of items{% endblock titlew %}
-
+{% block titlew %}
+    List of items
+{% endblock titlew %}
 {% block content %}
-
-<table id="example" class="table table-striped" style="width:100%">
-    <thead>
-        <tr>
-            <th>State</th>
-            <th>Category</th>
-            <th>Count</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in items %}                
+    <table id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>State</th>
+                <th>Category</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
                 <tr onclick="window.location='{% url 'stock:items-detail' item.id %}';">
                     <td>{{ item.state }}</td>
                     <td>{{ item.category }}</td>
                     <td>{{ item.num_items }}</td>
                 </tr>
-        {% endfor %}
-    </tbody>
-    <tfoot>
-        <tr>
-            <th>State</th>
-            <th>Category</th>
-            <th>Count</th>
-        </tr>
-    </tfoot>
-</table>
-
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>State</th>
+                <th>Category</th>
+                <th>Count</th>
+            </tr>
+        </tfoot>
+    </table>
 {% endblock content %}

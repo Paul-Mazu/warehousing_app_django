@@ -1,54 +1,60 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block title %}{{item.slug}}{% endblock title %}
-
-{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'stock/list.css' %}">{% endblock style %}
-
-{% block back-button %}{% url 'stock:list-items' %}{% endblock back-button %}
-
+{% block title %}
+    {{ item.slug }}
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'stock/list.css' %}">
+{% endblock style %}
+{% block back-button %}
+    {% url 'stock:list-items' %}
+{% endblock back-button %}
 {% block content %}
-
-
-<table>
-    <thead>
-        <tr>
-            <th>State</th>
-            <th>Category</th>
-            <th>Date of stock</th>
-            <th>Warehouse</th>
-            <th>Order</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in items %}                
+    <table>
+        <thead>
+            <tr>
+                <th>State</th>
+                <th>Category</th>
+                <th>Date of stock</th>
+                <th>Warehouse</th>
+                <th>Order</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
                 <tr>
                     <td>{{ item.state }}</td>
                     <td>{{ item.category }}</td>
                     <td>{{ item.date_of_stock.date }}</td>
                     <td>Warehouse No: {{ item.warehouse.id }}</td>
-                    
-                    {% if not user.is_authenticated  %}
-                    <td><form action="{% url 'stock:add-to-cart' item.id %}" method='POST'>
-                        <button title="You have to be logged to place an order" type="submit" disabled= "disabled">Add to order</button>
-                    </form></td>
-
+                    {% if not user.is_authenticated %}
+                        <td>
+                            <form action="{% url 'stock:add-to-cart' item.id %}" method='post'>
+                                <button title="You have to be logged to place an order"
+                                        type="submit"
+                                        disabled="disabled">Add to order</button>
+                            </form>
+                        </td>
                     {% else %}
-                    
                         {% if item.id in cart %}
-                        <td><form action="{% url 'stock:add-to-cart' item.id %}" method='POST'>
-                            <button title="You already added this item to your basket" type="submit" disabled= "disabled">Add to order</button>
-                        </form></td>
+                            <td>
+                                <form action="{% url 'stock:add-to-cart' item.id %}" method='post'>
+                                    <button title="You already added this item to your basket"
+                                            type="submit"
+                                            disabled="disabled">Add to order</button>
+                                </form>
+                            </td>
                         {% else %}
-                        <td><form action="{% url 'stock:add-to-cart' item.id %}" method='POST'>
-                            {% csrf_token %}
-                            <button type="submit">Add to order</button>
-                        </form></td>
+                            <td>
+                                <form action="{% url 'stock:add-to-cart' item.id %}" method='post'>
+                                    {% csrf_token %}
+                                    <button type="submit">Add to order</button>
+                                </form>
+                            </td>
                         {% endif %}
                     {% endif %}
                 </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock content %}

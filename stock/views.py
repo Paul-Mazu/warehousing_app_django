@@ -8,14 +8,15 @@ from django.db.models import Count, Min, Value
 from django.views import View
 from django.views.generic import ListView
 from django.db.models.functions import Concat
-from django.db.models import Count
 
 
 def index(request):
     warehouses = Warehouse.objects.all()
     warehouses_count = len(warehouses)
     items_count = Item.objects.count()
-    categories_count = Item.objects.aggregate(count=Count("category", distinct=True))["count"]
+    categories_count = Item.objects.aggregate(count=Count("category", distinct=True))[
+        "count"
+    ]
 
     return render(
         request,
@@ -24,7 +25,7 @@ def index(request):
             "warehouses": warehouses,
             "items_count": items_count,
             "categories_count": categories_count,
-            "warehouses_count": warehouses_count
+            "warehouses_count": warehouses_count,
         },
     )
 
