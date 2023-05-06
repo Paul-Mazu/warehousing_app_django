@@ -85,11 +85,11 @@ WSGI_APPLICATION = "warehouse.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "warehouse",
-        "USER": "paul",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "postgres",
+        "USER": os.getenv("USER"),
         "PASSWORD": os.getenv("DATABASE_PASSWORD"),
-        "HOST": "localhost",
+        "HOST": os.getenv("HOST"),
         "PORT": "5432",
     }
 }
