@@ -1,0 +1,55 @@
+  
+  /* Center the table and add margin */
+  table {
+    margin: 20px auto;
+    height: 400px;
+    overflow: scroll;
+  }
+  
+  /* Style the table header */
+  thead {
+    background-color: #141e30;
+    color: #fff;
+  }
+  
+  thead th {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Style the table rows */
+  tbody tr:nth-child(odd) {
+    background-color: whitesmoke;
+    color: black;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: white;
+    color: black;
+  }
+  
+  tbody tr:hover {
+    background-color: #d8d8d8;
+    /* cursor: pointer; */
+  }
+  
+  /* Style the table cells */
+  td {
+    padding: 10px;
+    border: 1px solid #d8d8d8;
+  }
+
+form button {
+  border-radius: 10px;
+}
+  
+form button[type="submit"]:hover {
+  background-color: white;
+  /* cursor: pointer; */
+}
+
+form button[type="submit"]:disabled {
+  background-color: gray; /* change the background color */
+  color: white; /* change the text color */
+  cursor: not-allowed; /* change the cursor */
+} 

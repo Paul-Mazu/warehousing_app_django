@@ -1,0 +1,21 @@
+#example {
+    /* background-color: whitesmoke; */
+    background-color: #656e7db7;
+    cursor: pointer;
+    color: white;
+}
+
+#example td {
+    color: white ;
+}
+
+#example_info {
+    background-color:#656e7db7 ;
+    width:fit-content;
+    padding: 1rem;
+}
+
+#example tr:hover {
+    background-color: #0056b3;
+    cursor: pointer;
+}

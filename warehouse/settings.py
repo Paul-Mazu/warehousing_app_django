@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("IS_DEVELOPMENT", default=True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.getenv("APP_HOST", default="127.0.0.1")]
 
 
 # Application definition
@@ -85,11 +85,11 @@ WSGI_APPLICATION = "warehouse.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "warehouse",
-        "USER": "paul",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "postgres",
+        "USER": os.getenv("USER"),
         "PASSWORD": os.getenv("DATABASE_PASSWORD"),
-        "HOST": "localhost",
+        "HOST": os.getenv("HOST"),
         "PORT": "5432",
     }
 }
@@ -129,7 +129,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STATIC_URL = "/static/"
+
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 
@@ -138,5 +141,5 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = "stock:index-page"
+# LOGIN_REDIRECT_URL = "stock:index-page"
 LOGOUT_REDIRECT_URL = "stock:index-page"
