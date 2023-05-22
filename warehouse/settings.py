@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "rest_framework.authtoken",
     "stock",
 ]
 
@@ -88,7 +90,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "warehouse",
         "USER": "paul",
-        "PASSWORD": os.getenv("DATABASE_PASSWORD"),
+        "PASSWORD": 1123,
         "HOST": "localhost",
         "PORT": "5432",
     }
@@ -140,3 +142,17 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = "stock:index-page"
 LOGOUT_REDIRECT_URL = "stock:index-page"
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+        'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    # "DEFAULT_RENDERER_CLASSES": [
+    #     "rest_framework.renderers.JSONRenderer",
+    #     "rest_framework.renderers.BrowsableAPIRenderer",
+    # ],
+}
