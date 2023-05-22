@@ -10,13 +10,24 @@ body {
 }
 
 h1 {
-text-align: center;
-margin-top: 50px;
-font-size: 3rem;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 50px;
+    font-size: 3rem;
+    padding: 1rem;
+    background-color: #656e7d8f;
+    border-radius: 15px ;
 }
 
 h2 {
     text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 50px;
+    padding: 1rem;
+    background-color: #656e7d8f;
+    border-radius: 15px ;
 }
 
 h2 img {
