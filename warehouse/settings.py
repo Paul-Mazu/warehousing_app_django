@@ -26,6 +26,7 @@ SECRET_KEY = "django-insecure-v8bofe1!jns6#$q^tlq@!k_ws0_*0!inht&n-s4&!p*cke1hw1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
 ALLOWED_HOSTS = [
     "warehouse-env.eba-vqpsqrqm.us-east-1.elasticbeanstalk.com",
     "127.0.0.1",
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "rest_framework.authtoken",
     "stock",
 ]
 
@@ -97,8 +100,14 @@ WSGI_APPLICATION = "warehouse.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "postgres",
+        "USER": os.getenv("USER"),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD"),
+        "HOST": os.getenv("HOST"),
+        "PORT": "5432",
     }
 }
 
@@ -150,3 +159,17 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = "stock:index-page"
 LOGOUT_REDIRECT_URL = "stock:index-page"
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+        'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    # "DEFAULT_RENDERER_CLASSES": [
+    #     "rest_framework.renderers.JSONRenderer",
+    #     "rest_framework.renderers.BrowsableAPIRenderer",
+    # ],
+}
