@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['3.67.100.97', 'localhost']
 
 
 # Application definition
@@ -87,11 +87,11 @@ WSGI_APPLICATION = "warehouse.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "warehouse",
-        "USER": "paul",
-        "PASSWORD": 1123,
-        "HOST": "localhost",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "postgres",
+        "USER": os.getenv("USER"),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD"),
+        "HOST": os.getenv("HOST"),
         "PORT": "5432",
     }
 }
