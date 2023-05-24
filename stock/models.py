@@ -9,7 +9,7 @@ class Item(models.Model):
     warehouse = models.ForeignKey("Warehouse", models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "item"
 
     def __str__(self):
@@ -23,7 +23,7 @@ class Warehouse(models.Model):
     name = models.CharField(max_length=15)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "warehouse"
 
     def __str__(self):

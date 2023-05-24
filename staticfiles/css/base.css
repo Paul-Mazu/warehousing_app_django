@@ -1,0 +1,75 @@
+body {
+    margin:0;
+    padding:0;
+    background-image: url(../pictures/warehouse.jpg);
+  }
+
+.content_section {
+    min-height: 75vh;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 50px;
+    font-size: 3rem;
+    padding: 1rem;
+    background-color: #656e7d8f;
+    border-radius: 15px ;
+}
+
+h2 {
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 50px;
+    padding: 1rem;
+    background-color: #656e7d8f;
+    border-radius: 15px ;
+}
+
+h2 img {
+    height: 1em;
+    width: 1em;
+}
+
+footer {
+    color: white;
+    font-size: large;
+    font-weight: 600;
+}
+
+span.mb-3.mb-md-0 {
+    background-color: #656e7d8f;
+}
+
+.list_indexpage {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    width: 20rem;
+    padding: 5rem;
+    display: block;
+    background-color: #656e7d8f;
+    color: white;
+    border-radius: 30% ;
+    list-style: none;
+}
+
+.list_indexpage li {
+    list-style: none;
+
+}
+
+.gif {
+    display: block;
+    width: 50%;
+    height: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    border: 10px solid white;
+    border-radius: 15px;
+}
