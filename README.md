@@ -68,6 +68,53 @@ Base URL: http://example.com/api/stock/
 ### Authentication:
 * The API endpoints require authentication. Please include the authentication token in the request headers.
 
+### Example Usage:
+* Get a list of all items:  
+``GET /api/list-items/``
+* Response:  
+```[  
+  {  
+      "id": 1,  
+      "state": "State 1",  
+      "category": "Category 1",  
+      "date_of_stock": "2023-06-01T10:30:00Z",  
+      "warehouse": 1  
+  },  
+  {
+      "id": 2,
+      "state": "State 2",
+      "category": "Category 2",
+      "date_of_stock": "2023-06-02T12:45:00Z",
+      "warehouse": 2
+  }
+]
+```
+* Get details of a specific item:
+``GET /api/list-items/1/``
+* Response:
+```
+{
+  "id": 1,
+  "state": "State 1",
+  "category": "Category 1",
+  "date_of_stock": "2023-06-01T10:30:00Z",
+  "warehouse": 1
+}
+```
+* Update details of a specific item:  
+``PUT /api/list-items/1/``  
+* Request Body:  
+```
+{
+  "state": "Updated State 1",
+  "category": "Updated Category 1",
+  "date_of_stock": "2023-06-01T15:00:00Z",
+  "warehouse": 2
+}
+
+```
+
+
 ## Technologies Used
 * Front-end: HTML, CSS, Bootstrap, JavaScript
 * Back-end: Python Django, Django Rest Framework
