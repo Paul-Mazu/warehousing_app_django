@@ -4,18 +4,17 @@
 
 <div align="center">
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Paul-Mazu/warehousing_app_django?color=1d7147&style=for-the-badge)
-![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Paul-Mazu/warehousing_app_django?color=EAE6B4&style=for-the-badge) ![GitHub milestones](https://img.shields.io/github/milestones/all/Paul-Mazu/warehousing_app_django?color=F2F2F2&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/Paul-Mazu/warehousing_app_django?color=62B096&style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Paul-Mazu/warehousing_app_django?color=1d7147&style=for-the-badge) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Paul-Mazu/warehousing_app_django?color=EAE6B4&style=for-the-badge) ![GitHub milestones](https://img.shields.io/github/milestones/all/Paul-Mazu/warehousing_app_django?color=F2F2F2&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/Paul-Mazu/warehousing_app_django?color=62B096&style=for-the-badge)
 </div>
 
 <div align="center">
-  <a href="#About">About</a>  |
-  <a href="#Key Features">Key Features</a>  |
-  <a href="#Prototype">Prototype</a>  |
-  <a href="#Setup">Setup</a>  |
-  <a href="#API documentation">API documentation</a>  |
-  <a href="#Technologies Used">Technologies Used</a>  |
-  <a href="#Authors">Authors</a>
+  <a href="#about">About</a>  |
+  <a href="#key-features">Key Features</a>  |
+  <a href="#prototype">Prototype</a>  |
+  <a href="#setup">Setup</a>  |
+  <a href="#api-documentation">API documentation</a>  |
+  <a href="#technologies-used">Technologies Used</a>  |
+  <a href="#authors">Authors</a>
 </div>
 
 <br>
@@ -69,17 +68,17 @@ Base URL: http://example.com/api/stock/
 * The API endpoints require authentication. Please include the authentication token in the request headers.
 
 ### Example Usage:
-* Get a list of all items:  
+* Get a list of all items:
 ``GET /api/list-items/``
-* Response:  
-```[  
-  {  
-      "id": 1,  
-      "state": "State 1",  
-      "category": "Category 1",  
-      "date_of_stock": "2023-06-01T10:30:00Z",  
-      "warehouse": 1  
-  },  
+* Response:
+```[
+  {
+      "id": 1,
+      "state": "State 1",
+      "category": "Category 1",
+      "date_of_stock": "2023-06-01T10:30:00Z",
+      "warehouse": 1
+  },
   {
       "id": 2,
       "state": "State 2",
@@ -89,7 +88,7 @@ Base URL: http://example.com/api/stock/
   }
 ]
 ```
-* Get details of a specific item:
+* Get details of a specific item:  
 ``GET /api/list-items/1/``
 * Response:
 ```
@@ -102,8 +101,8 @@ Base URL: http://example.com/api/stock/
 }
 ```
 * Update details of a specific item:  
-``PUT /api/list-items/1/``  
-* Request Body:  
+``PUT /api/list-items/1/``
+* Request Body:
 ```
 {
   "state": "Updated State 1",
@@ -123,12 +122,7 @@ Base URL: http://example.com/api/stock/
 
 ## Authors
 
-* Pawel Mazurkiewicz:  
+* Pawel Mazurkiewicz:
 Tutor and Student Digital Career Institute  
 [GitHub](https://github.com/Paul-Mazu)  
-[LinkedIn](https://www.linkedin.com/in/pawel-mazurkiewicz-906877173/)
-
-
-
-
-
+[LinkedIn](https://www.linkedin.com/in/pawel-mazurkiewicz-906877173/)  
